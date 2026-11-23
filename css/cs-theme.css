@@ -27,7 +27,7 @@
   --aqua-soft: oklch(95.5% 0.02 200);
   --chart-context: oklch(78% 0.02 80);
   --focus: oklch(46% 0.1 205);
-  --font-display: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+  --font-display: "Newsreader", "Iowan Old Style", Georgia, serif;
   --font-body: "Figtree", "Segoe UI", system-ui, sans-serif;
   --font-mono: var(--font-body);
   --font-hand: var(--font-body);
@@ -373,17 +373,8 @@ code, .code, .tbc-mark, .tbc, .call, .verdict, .st, .ledger__head, .c-unit, .c-v
 @media (max-width: 899px) { .tp { min-height: 60vh; } }
 .map__line li::before { border-radius: 0; }
 
-/* Font swap (23/11): Instrument Serif has one weight; never fake-bold it */
-h1, h2, h3, h4, .small-h, .res__k, .res__grid b, .rf-facts b, .rf-proc__k, .partners__k, .rf-rec__t, .rf-ph__t, .rf-stat--list span, .tc-lb__t, .cs-q blockquote p, .cs-q::before, .map__lands {
-  font-synthesis: none; font-weight: 400 !important; letter-spacing: 0 !important;
-}
-h1, h2 { line-height: 1.05; }
-.cs-q blockquote p { font-style: italic; font-size: 1.2rem; }
-h1 em, h2 em { font-style: italic; }
-/* Small headings: serif is too narrow at this size, use the body font bold */
-h3, h4, .rf-rec__t, .rf-ph__t, .res__k, .rf-proc__k, .partners__k, .tc-lb__t, .tabs__b b {
-  font-family: var(--font-body) !important; font-weight: 700 !important; letter-spacing: -0.01em !important; line-height: 1.3;
-}
-.rf-rec__t { font-size: 1.05rem; }
-/* Section titles stay serif, same as the other h2s */
-h2.small-h { font-family: var(--font-display) !important; font-weight: 400 !important; font-size: clamp(2rem, 3.4vw, 2.6rem); letter-spacing: 0 !important; line-height: 1.05; }
+/* Font swap (23/11): Newsreader headings, Figtree body */
+h1, h2, h3, h4, .small-h { font-family: var(--font-display); font-weight: 600; letter-spacing: -0.015em; }
+h1, h2 { font-weight: 500; letter-spacing: -0.02em; }
+.cs-q blockquote p { font-style: italic; font-weight: 400; }
+html body h1 { font-weight: 500 !important; letter-spacing: -0.025em; }
