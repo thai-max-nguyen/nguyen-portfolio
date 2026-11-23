@@ -1,4 +1,6 @@
-/* Placeholder switch: uncomment to hide every [TBD] element before schools see the site. */
+/* Drafted content (unconfirmed, see portfolio-notes.md): looks normal. Uncomment to outline every drafted element. */
+/* .rf-draft{outline:1px dashed orange} */
+/* Empty cabinet slots (js/rolefit.js adds .rf-todo): uncomment to hide them before schools see the site. */
 /* .rf-todo{display:none!important} */
 
 /* rolefit.css: re-fit of the cloned PO layout to a client-services / market-research role.
@@ -104,8 +106,8 @@
 /* Expertise: "building next" */
 .bt p a { color: var(--ink); text-underline-offset: 3px; }
 #side .rf-ask { margin-top: var(--s-5); }
-.rf-nextup { margin: var(--s-4) 0 0; padding: var(--s-4) var(--s-5); border: 1px dashed var(--rule-strong); border-radius: var(--r-md); font-size: var(--text-sm); line-height: 1.55; color: var(--ink-3); }
-.rf-nextup b { display: block; margin-bottom: var(--s-1); font: 600 var(--text-xs)/1 var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); }
+.rf-nextup, .rf-tools { margin: var(--s-4) 0 0; padding: var(--s-4) var(--s-5); border: 1px solid var(--rule); border-radius: var(--r-md); font-size: var(--text-sm); line-height: 1.55; color: var(--ink-3); }
+.rf-nextup b, .rf-tools b { display: block; margin-bottom: var(--s-1); font: 600 var(--text-xs)/1 var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); }
 
 /* phones/tablets: the media column is full width, so a 4:3 tile is mostly empty space */
 @media (max-width: 899px) {
@@ -121,3 +123,13 @@
 .rf-rec__d { margin: var(--s-2) 0 0; font-size: var(--text-sm); line-height: 1.5; color: var(--ink-2); }
 @media (max-width: 900px) { .rf-rec { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-5) var(--s-4); } }
 @media (max-width: 560px) { .rf-rec { grid-template-columns: 1fr; gap: var(--s-4); } }
+
+/* Drafted client case and query steps */
+.rf-case { margin: var(--s-3) 0 var(--s-4); display: grid; gap: var(--s-2); }
+.rf-case > div { display: grid; grid-template-columns: minmax(96px, 120px) 1fr; gap: var(--s-3); padding-top: var(--s-2); border-top: 1px solid var(--rule); }
+.rf-case dt { font: 600 var(--text-xs)/1.5 var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); }
+.rf-case dd { margin: 0; font-size: var(--text-sm); line-height: 1.55; }
+.rf-steps { margin: var(--s-3) 0 var(--s-4); padding: 0; list-style: none; counter-reset: rfs; display: grid; gap: var(--s-2); }
+#c50 .rf-steps > li { counter-increment: rfs; display: block; position: relative; margin: 0; padding: 0 0 0 1.8em; border: 0; border-radius: 0; background: none; box-shadow: none; font-size: var(--text-sm); line-height: 1.5; }
+#c50 .rf-steps > li::before { content: counter(rfs); position: absolute; left: 0; top: 0; font: 700 var(--text-xs)/1.8 var(--font-mono); color: var(--ink-2); }
+@media (max-width: 520px) { .rf-case > div { grid-template-columns: 1fr; gap: 0; } }

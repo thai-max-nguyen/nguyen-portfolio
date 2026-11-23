@@ -1,6 +1,6 @@
 /* rolefit.js: small additions without touching main.js.
    1. Tabs: Home / End jump to the first / last tab (arrows stay in main.js).
-   2. Cabinet: mark the "[TBD] photo coming" slots as placeholders (.rf-todo). */
+   2. Cabinet: mark the empty photo slots as placeholders (.rf-todo). */
 (function () {
   var tabs = Array.prototype.slice.call(document.querySelectorAll(".tabs__b"));
   tabs.forEach(function (t) {
