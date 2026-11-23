@@ -1,0 +1,114 @@
+/* Placeholder switch: uncomment to hide every [TBD] element before schools see the site. */
+/* .rf-todo{display:none!important} */
+
+/* rolefit.css: re-fit of the cloned PO layout to a client-services / market-research role.
+   Loaded after style.css and cabinet.css. New classes are rf-*; the rest are scoped overrides. */
+
+/* Disabled buttons and [TBD] markers. --ink-3 on --paper / --paper-2 passes AA (see report). */
+.btn.rf-off { cursor: not-allowed; }
+.rf-tbd { color: var(--ink-3); }
+
+/* Request lines: what Nguyen still needs to send. One quiet dashed line per missing block. */
+.rf-ask {
+  margin: var(--s-4) 0 0; padding: var(--s-2) var(--s-3); border: 1px dashed var(--rule-strong); border-radius: var(--r-sm);
+  font: 500 var(--text-xs)/1.5 var(--font-mono); letter-spacing: 0.02em; color: var(--ink-3); text-wrap: pretty;
+}
+.rf-ask + .rf-ask { margin-top: var(--s-2); }
+.tp__copy > p.rf-ask { color: var(--ink-3); margin: var(--s-3) 0 0; line-height: 1.5; }
+
+/* Hero: the 715 x 900 photo slot, held until her presenting photo arrives */
+.rf-ph { margin: 0; }
+.rf-ph__frame {
+  position: relative; width: 100%; max-width: 420px; margin: 0 auto; aspect-ratio: 715 / 900;
+  display: grid; align-content: center; justify-items: center; gap: var(--s-2); padding: var(--s-6) var(--s-5);
+  text-align: center; border-radius: var(--r-lg); border: 1px solid var(--rule);
+  background:
+    radial-gradient(circle at 1px 1px, color-mix(in oklch, var(--ink-3) 28%, transparent) 1px, transparent 0) 0 0 / 18px 18px,
+    linear-gradient(160deg, color-mix(in oklch, var(--water) 14%, var(--paper)) 0%, var(--paper-2) 62%);
+}
+/* viewfinder corners: reads as a photo frame waiting for a picture */
+.rf-ph__frame::before, .rf-ph__frame::after { content: ""; position: absolute; width: 34px; height: 34px; border: 2px solid var(--ink-3); opacity: 0.55; }
+.rf-ph__frame::before { top: var(--s-4); left: var(--s-4); border-right: 0; border-bottom: 0; border-radius: var(--r-sm) 0 0 0; }
+.rf-ph__frame::after { bottom: var(--s-4); right: var(--s-4); border-left: 0; border-top: 0; border-radius: 0 0 var(--r-sm) 0; }
+.rf-ph__art { width: min(78%, 260px); height: auto; color: var(--ink-2); margin-bottom: var(--s-3); }
+.rf-ph__scr { fill: var(--paper); }
+.rf-ph__bar { stroke: var(--water); stroke-width: 7; }
+.rf-ph__ln { stroke: var(--ink-3); }
+.rf-ph__ptr { stroke: var(--cc); }
+.rf-ph__t { margin: 0; font: 700 var(--text-lg)/1.25 var(--font-display); color: var(--ink); text-wrap: balance; }
+.rf-ph figcaption { margin-top: var(--s-2); font-size: var(--text-sm); color: var(--ink-3); text-align: center; }
+.motion .rf-ph__frame { opacity: 0; transform: translateY(16px); animation: zup 800ms var(--ease) 150ms forwards; }
+
+/* Hero word "Vietnam": keep the hover art behind the letters so the word stays readable */
+.vnw__r { z-index: -1; }
+.vnw:hover .vnw__f, .vnw:focus-visible .vnw__f, .vnw.is-on .vnw__f { opacity: 0.5; }
+
+/* Recognition: 2-cell fact tiles, sized to the card (cqi) so every tile matches, Face-off included */
+.aw__grid > li { container-type: inline-size; }
+.aw__art.rf-art { gap: clamp(var(--s-1), 2.4cqi, var(--s-3)); padding: clamp(var(--s-2), 4cqi, var(--s-4)); }
+.aw__art.rf-art--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.aw__art.rf-art span { min-width: 0; overflow: hidden; padding: 0 var(--s-1); }
+.aw__art.rf-art b { font-size: clamp(1.25rem, 13cqi, 3.4rem); white-space: nowrap; }
+.aw__art.rf-art i { font-size: clamp(0.6rem, 3.6cqi, var(--text-xs)); line-height: 1.3; text-align: center; }
+
+/* Tab layout: one grid for every tab, and a height floor so switching tabs does not jump */
+@media (min-width: 900px) {
+  .tp, #p-vneid, #p-vietqr { grid-template-columns: 320px minmax(0, 1fr); }
+  .tp { min-height: 560px; }
+}
+
+/* Tab media: stat and list tiles */
+.rf-stat b { color: var(--c, var(--ew)); font-stretch: 108%; letter-spacing: -0.02em; }
+.rf-stat span { font-weight: 600; color: var(--ink); }
+.rf-stat .rf-stat__s { font: 500 var(--text-xs)/1.4 var(--font-mono); letter-spacing: 0.04em; color: var(--ink-3); text-wrap: balance; }
+.rf-cup { display: block; width: 52px; height: 60px; margin: 0 auto; }
+.rf-stat--list { gap: 0; }
+.rf-stat--list .rf-stat__k { margin-bottom: var(--s-3); font: 600 var(--text-xs)/1.3 var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); text-wrap: balance; }
+.rf-stat--list span:not(.rf-stat__k) { padding: var(--s-2) 0; font: 700 var(--text-lg)/1.2 var(--font-display); color: var(--ink); }
+.rf-stat--list span:not(.rf-stat__k) + span { border-top: 1px solid var(--rule); }
+
+/* Tab 3: fact trio stacked in the media column */
+.ex__facts.rf-facts { margin: 0; display: grid; gap: 0; padding: 0 var(--s-5); border: 1px solid var(--rule); border-radius: var(--r-lg); background: var(--paper-2); color: var(--ink-2); }
+.rf-facts span { white-space: normal; display: grid; gap: var(--s-1); padding: var(--s-4) 0; line-height: 1.4; }
+.rf-facts span + span { border-top: 1px solid var(--rule); }
+.rf-facts b { margin: 0; color: var(--c); }
+
+/* Numbered lists inside tab copy */
+.tp__copy .rq { margin: var(--s-3) 0 var(--s-5); }
+.rf-agenda { grid-template-columns: repeat(auto-fit, minmax(min(100%, 170px), 1fr)); column-gap: var(--s-4); }
+.rf-agenda li { align-items: center; }
+.rf-agenda b { padding-top: 0; }
+
+/* Process flow in the #c50 style (boxes, arrows, end state), as HTML so it reflows on phones */
+.rf-proc { margin: 0; }
+.rf-proc__k { margin: 0 0 var(--s-3); font: 600 var(--text-xs)/1 var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); }
+.rf-flow { list-style: none; margin: 0; padding: 0; counter-reset: rff; display: grid; gap: var(--s-5); }
+.rf-flow li, .rgrid--v .rf-flow li {
+  counter-increment: rff; position: relative; display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 0 var(--s-3); align-items: start;
+  padding: var(--s-3) var(--s-4); border: 1px solid var(--rule); border-radius: var(--r-sm); background: var(--paper-2);
+}
+.rf-flow li::before {
+  content: counter(rff); grid-row: span 2; width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center;
+  font: 700 var(--text-xs)/1 var(--font-mono); background: var(--c, var(--dt)); color: var(--on-line);
+}
+/* light theme: white on the mid-tone line colours fails AA, so use a tint with dark text */
+:root:not([data-theme=dark]) .rf-flow li::before { color: var(--ink); background: color-mix(in oklch, var(--c, var(--dt)) 22%, var(--paper)); border: 1px solid var(--c, var(--dt)); }
+.rf-flow li + li::after { content: ""; position: absolute; left: 26px; top: calc(-1 * var(--s-5) + 2px); width: 1.3px; height: calc(var(--s-5) - 8px); background: var(--ink-3); }
+.rf-flow li + li > b::before { content: ""; position: absolute; left: 22.5px; top: -7px; border: 4px solid transparent; border-top: 5px solid var(--ink-3); border-bottom: 0; }
+.rf-flow b { font: 600 var(--text-sm)/1.35 var(--font-body); color: var(--ink); }
+.rf-flow small { grid-column: 2; font: 400 var(--text-xs)/1.4 var(--font-mono); color: var(--ink-3); }
+.rf-flow li.is-ok, .rgrid--v .rf-flow li.is-ok { background: color-mix(in oklch, var(--dt) 14%, var(--paper)); border-color: var(--dt); }
+.rf-proc figcaption { margin-top: var(--s-3); max-width: none; }
+#p-vneid .rf-proc { --c: var(--dt); }
+
+/* Expertise: "building next" */
+.bt p a { color: var(--ink); text-underline-offset: 3px; }
+#side .rf-ask { margin-top: var(--s-5); }
+.rf-nextup { margin: var(--s-4) 0 0; padding: var(--s-4) var(--s-5); border: 1px dashed var(--rule-strong); border-radius: var(--r-md); font-size: var(--text-sm); line-height: 1.55; color: var(--ink-3); }
+.rf-nextup b { display: block; margin-bottom: var(--s-1); font: 600 var(--text-xs)/1 var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); }
+
+/* phones/tablets: the media column is full width, so a 4:3 tile is mostly empty space */
+@media (max-width: 899px) {
+  .tp__stat.rf-stat { aspect-ratio: auto; padding: var(--s-6) var(--s-5); }
+  .rf-ph__frame { max-width: 360px; }
+}
