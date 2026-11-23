@@ -66,6 +66,11 @@
     { year: 2021, shelf: "2020–21", kind: "photo", title_en: "[TBD] photo coming", img: null }
   ];
 
+  // Newest first: Grade 12 shelf on top, latest award first on each shelf.
+  SHELVES.reverse();
+  ITEMS.reverse();
+  ITEMS = ITEMS.filter(function (it) { return it.img; }); // photo slots with no image stay hidden until a photo arrives
+
   var root = document.getElementById("cabinet");
   if (!root) return;
   var list = root.querySelector(".tc__shelves");

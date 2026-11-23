@@ -112,3 +112,12 @@
   .tp__stat.rf-stat { aspect-ratio: auto; padding: var(--s-6) var(--s-5); }
   .rf-ph__frame { max-width: 360px; }
 }
+
+/* Recognition: compact list, newest first (replaces the dark tile grid) */
+.rf-rec { list-style: none; margin: var(--s-4) 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--s-5); }
+.rf-rec li { border-top: 2px solid var(--ink); padding-top: var(--s-3); }
+.rf-rec__y { margin: 0; font: 600 var(--text-xs)/1.4 var(--font-mono); letter-spacing: 0.06em; color: var(--ink-3); }
+.rf-rec__t { margin: var(--s-2) 0 0; font: 700 var(--text-lg)/1.25 var(--font-display); color: var(--ink); text-wrap: balance; }
+.rf-rec__d { margin: var(--s-2) 0 0; font-size: var(--text-sm); line-height: 1.5; color: var(--ink-2); }
+@media (max-width: 900px) { .rf-rec { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-5) var(--s-4); } }
+@media (max-width: 560px) { .rf-rec { grid-template-columns: 1fr; gap: var(--s-4); } }
